@@ -1,0 +1,60 @@
+import org.flywaydb.gradle.task.FlywayMigrateTask
+
+plugins {
+	id 'org.springframework.boot' version '2.4.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id "org.flywaydb.flyway" version "7.5.4"
+}
+
+group = 'puc.tcc'
+version = '1.0.0'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
+	compile('io.springfox:springfox-swagger2:2.9.2')
+	compile('io.springfox:springfox-swagger-ui:2.9.2')
+	implementation group: 'commons-io', name: 'commons-io', version: '2.6'
+	testImplementation ('org.springframework.boot:spring-boot-starter-test'){
+		exclude group: 'junit', module: 'junit'
+	}
+	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.1'
+	testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.8.0'
+
+}
+
+test {
+	useJUnitPlatform()
+}
+
+task migrateLocal(type: FlywayMigrateTask) {
+	url = 'jdbc:postgresql://localhost:5432/contracts'
+	user = 'admin'
+	password = 'admin'
+	schemas = ['public']
+	locations = ['classpath:db/migration']
+}
+
+task migrateProd(type: FlywayMigrateTask) {
+	url = 'jdbc:postgresql://ec2-18-211-97-89.compute-1.amazonaws.com:5432/d8q0o5fiv0e4f6?sslmode=require&user=wutaqzfnqsaomd&password=a143f3196df8089ba58e71a76674887cac9948f0f3c903d546a901a03f22e852'
+	schemas = ['public']
+	locations = ['classpath:db/migration']
+}
