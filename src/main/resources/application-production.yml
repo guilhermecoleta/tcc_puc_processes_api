@@ -8,7 +8,7 @@ spring:
     hikari:
       connection_timeout: 10000
       maximum_pool_size: 5
-    url: jdbc:postgresql://ec2-18-211-97-89.compute-1.amazonaws.com:5432/d8q0o5fiv0e4f6?sslmode=require&user=wutaqzfnqsaomd&password=a143f3196df8089ba58e71a76674887cac9948f0f3c903d546a901a03f22e852
+    url: jdbc:postgresql://ec2-54-225-190-241.compute-1.amazonaws.com:5432/d48hut4gjd1v0b?sslmode=require&user=gyldslkdthmwmz&password=966c9d2b1d8c1497f822fd1cc2eb0751f9960c26740c3ee454ad26604cf5ee6b
     driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true

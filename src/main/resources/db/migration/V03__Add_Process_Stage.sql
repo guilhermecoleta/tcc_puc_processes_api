@@ -3,3 +3,5 @@ alter table process add column current_stage bigint constraint current_stage_fk 
 alter table process add column next_stage bigint constraint next_stage_fk REFERENCES process_stage(id);
 
 
+
+

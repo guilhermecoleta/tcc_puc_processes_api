@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "puc.tcc.contracts.api")
+@ComponentScan(basePackages = "puc.tcc.processes.api")
 @PropertySource(value = "classpath:application.yml")
 @PropertySource(value = "classpath:application-${spring.profiles.active}.yml")
 public class ProcessesApiApplication {

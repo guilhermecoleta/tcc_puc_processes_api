@@ -5,7 +5,7 @@ create table process (
     document_id bigint not null,
     product_id bigint not null,
     quantity_product integer not null,
-    process_status bigint constraint process_status_fk REFERENCES process_status(id)
+    process_status varchar(50)
 );
 
 create sequence seq_process

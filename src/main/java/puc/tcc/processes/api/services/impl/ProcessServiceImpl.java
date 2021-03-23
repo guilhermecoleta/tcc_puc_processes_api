@@ -1,26 +1,43 @@
 package puc.tcc.processes.api.services.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import puc.tcc.processes.api.exception.ProcessesApiException;
-import puc.tcc.processes.api.resources.process.ProcessRequest;
-import puc.tcc.processes.api.resources.process.ProcessResponse;
+import puc.tcc.processes.api.mapper.ProcessMapper;
+import puc.tcc.processes.api.persistence.domain.ProcessEntity;
+import puc.tcc.processes.api.persistence.domain.ProcessStatusEnum;
+import puc.tcc.processes.api.persistence.repositories.ProcessRepository;
+import puc.tcc.processes.api.resources.process.create.ProcessCreateRequest;
 import puc.tcc.processes.api.services.ProcessService;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ProcessServiceImpl implements ProcessService {
+
+    @Autowired
+    private ProcessMapper processMapper;
+
+    @Autowired
+    private ProcessRepository processRepository;
+
     @Override
-    public ProcessResponse saveOrUpdate(ProcessRequest process) throws ProcessesApiException {
-        return null;
+    @Transactional
+    public ProcessEntity create(ProcessCreateRequest processCreateRequest) {
+        var entity = processMapper.create(processCreateRequest);
+        entity.setProcessStatus(ProcessStatusEnum.INITIALIZED);
+        return processRepository.save(entity);
     }
 
     @Override
-    public Optional<ProcessResponse> findById(Long id) {
+    public Optional<ProcessEntity> findById(Long id) {
         return Optional.empty();
     }
 
     @Override
-    public List<ProcessResponse> findAll() {
+    public List<ProcessEntity> findAll() {
         return null;
     }
 

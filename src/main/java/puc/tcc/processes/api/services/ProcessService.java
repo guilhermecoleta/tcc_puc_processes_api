@@ -2,18 +2,18 @@ package puc.tcc.processes.api.services;
 
 
 import puc.tcc.processes.api.exception.ProcessesApiException;
-import puc.tcc.processes.api.resources.process.ProcessRequest;
-import puc.tcc.processes.api.resources.process.ProcessResponse;
+import puc.tcc.processes.api.persistence.domain.ProcessEntity;
+import puc.tcc.processes.api.resources.process.create.ProcessCreateRequest;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ProcessService {
-    ProcessResponse saveOrUpdate(final ProcessRequest process) throws ProcessesApiException;
+    ProcessEntity create(final ProcessCreateRequest process);
 
-    Optional<ProcessResponse> findById(final Long id);
+    Optional<ProcessEntity> findById(final Long id);
 
-    List<ProcessResponse> findAll();
+    List<ProcessEntity> findAll();
 
     void delete(final Long id) throws ProcessesApiException;
 }

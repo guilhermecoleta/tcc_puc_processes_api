@@ -40,10 +40,10 @@
 `./gradlew build`
 
 #####Gerando a imagem do docker
-`docker build  -f Dockerfile-local -t contracts-api .`
+`docker build  -f Dockerfile-local -t processes-api .`
 
 #####Rodando a aplicação
-`docker run -d -p 8081:8081 -t contracts-api`
+`docker run -d -p 8081:8081 -t processes-api`
 
 ###Acessando a aplicação
 
@@ -53,4 +53,4 @@
 http://localhost:8081/swagger-ui.html
 
 #####Produção
-https://tcc-contracts-api.herokuapp.com//swagger-ui.html
+https://tcc-processes-api.herokuapp.com//swagger-ui.html

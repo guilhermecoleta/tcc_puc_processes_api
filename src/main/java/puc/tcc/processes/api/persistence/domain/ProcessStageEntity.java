@@ -31,12 +31,11 @@ public class ProcessStageEntity implements Serializable {
     private LocalDateTime datStart;
     @Column(name = "expected_dat_end")
     private LocalDateTime expectedDatEnd;
-    @Column(name = "expected_dat_end")
+    @Column(name = "dat_end")
     private LocalDateTime datEnd;
     @ManyToOne
     @JoinColumn(name = "process_id")
     private ProcessEntity process;
-    @ManyToOne
-    @JoinColumn(name = "stage_id")
-    private StageEntity stage;
+    private String name;
+
 }

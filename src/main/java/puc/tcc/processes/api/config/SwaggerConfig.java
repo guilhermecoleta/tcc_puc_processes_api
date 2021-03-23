@@ -26,7 +26,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
   public Docket greetingApi() {
     return new Docket(DocumentationType.SWAGGER_2)
             .select()
-            .apis(RequestHandlerSelectors.basePackage("puc.tcc.contracts.api"))
+            .apis(RequestHandlerSelectors.basePackage("puc.tcc.processes.api"))
             .build()
             .apiInfo(metaData())
             .securityContexts(Collections.singletonList(securityContext()))
@@ -50,8 +50,8 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 
   private ApiInfo metaData() {
     return new ApiInfoBuilder()
-            .title("TCC PUC Contracts API")
-            .description("\"Api for contracts\"")
+            .title("TCC PUC Processes API")
+            .description("\"Api for processes\"")
             .version("1.0.0")
             .license("Apache License Version 2.0")
             .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")

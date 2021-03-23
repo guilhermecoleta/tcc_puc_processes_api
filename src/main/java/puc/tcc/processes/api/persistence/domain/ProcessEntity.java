@@ -38,7 +38,6 @@ public class ProcessEntity implements Serializable {
     private Long productId;
     @Column(name = "quantity_product")
     private Integer quantityProduct;
-    @ManyToOne
-    @JoinColumn(name = "process_status")
-    private ProcessStatusEntity processStatus;
+    @Column(name = "process_status")
+    private ProcessStatusEnum processStatus;
 }

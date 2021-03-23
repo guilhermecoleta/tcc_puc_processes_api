@@ -37,7 +37,7 @@ public class ControllerExceptionHandler {
 
 
     @ExceptionHandler(ProcessesApiException.class)
-    public ResponseEntity<ErrorMessage> contractsApiException(ProcessesApiException ex, WebRequest request) {
+    public ResponseEntity<ErrorMessage> processesApiException(ProcessesApiException ex, WebRequest request) {
         return getErrorMessageResponseEntity(ex.getStatusCode(), ex.getField(), ex.getMessage());
     }
 

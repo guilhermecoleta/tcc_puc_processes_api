@@ -2,13 +2,13 @@ version: '2'
 
 services:
   postgres:
-    container_name: postgres_contract
+    container_name: postgres_processes
     image: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-admin}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
       PGDATA: /data/postgres
-      POSTGRES_DB: contracts
+      POSTGRES_DB: processes
     volumes:
       - postgres:/data/postgres
     ports:
@@ -18,7 +18,7 @@ services:
     restart: unless-stopped
 
   pgadmin:
-    container_name: pgadmin_contracts
+    container_name: pgadmin_processes
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}

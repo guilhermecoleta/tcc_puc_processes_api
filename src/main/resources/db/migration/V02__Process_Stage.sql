@@ -7,8 +7,8 @@ create table process_stage (
     dat_start timestamp,
     expected_dat_end timestamp not null,
     dat_end timestamp,
-    process_id bigint constraint process_fk REFERENCES process(id),
-    stage_id bigint constraint stage_fk REFERENCES stage(id)
+    name varchar(100),
+    process_id bigint constraint process_fk REFERENCES process(id)
 );
 
 create sequence seq_process_stage
