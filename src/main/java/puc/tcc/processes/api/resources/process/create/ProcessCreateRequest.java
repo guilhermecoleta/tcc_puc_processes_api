@@ -13,17 +13,17 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProcessCreateRequest {
-    @NotNull(message = "O campo nome deve ser preenchido")
+    @NotNull(message = "O campo deve ser preenchido")
     private Long number;
-    @NotNull(message = "O campo nome deve ser preenchido")
+    @NotNull(message = "O campo deve ser preenchido")
     private Integer priority;
-    @NotNull(message = "O campo nome deve ser preenchido")
+    @NotNull(message = "O campo deve ser preenchido")
     @JsonProperty(value = "document_id")
     private Long documentId;
-    @NotNull(message = "O campo nome deve ser preenchido")
+    @NotNull(message = "O campo deve ser preenchido")
     @JsonProperty(value = "product_id")
     private Long productId;
-    @NotNull(message = "O campo nome deve ser preenchido")
+    @NotNull(message = "O campo deve ser preenchido")
     @JsonProperty(value = "quantity_product")
     private Integer quantityProduct;
 }
