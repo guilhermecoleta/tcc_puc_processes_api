@@ -24,8 +24,6 @@ public class ProcessStageEntity implements Serializable {
     private Long id;
     private String observation;
     private String note;
-    @Column(name = "order_process_stage")
-    private Integer order;
     @Column(name = "expected_dat_start")
     private LocalDateTime expectedDatStart;
     @Column(name = "dat_start")

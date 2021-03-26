@@ -12,15 +12,12 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProcessStageSaveRequest {
+public class ProcessStageRequest {
     private Long id;
     private String observation;
-    private Integer order;
     @JsonProperty(value = "expected_dat_start")
     private LocalDateTime expectedDatStart;
     @JsonProperty(value = "expected_dat_end")
     private LocalDateTime expectedDatEnd;
-    @JsonProperty(value = "process_id")
-    private Long processId;
     private String name;
 }

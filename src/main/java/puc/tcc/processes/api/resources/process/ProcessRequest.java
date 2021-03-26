@@ -1,4 +1,4 @@
-package puc.tcc.processes.api.resources.process.create;
+package puc.tcc.processes.api.resources.process;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProcessCreateRequest {
+public class ProcessRequest {
     @NotNull(message = "O campo deve ser preenchido")
     private Long number;
     @NotNull(message = "O campo deve ser preenchido")
