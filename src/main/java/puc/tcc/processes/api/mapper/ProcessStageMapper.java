@@ -16,6 +16,8 @@ public interface ProcessStageMapper {
             @Mapping(source = "request.observation", target = "observation"),
             @Mapping(source = "request.expectedDatStart", target = "expectedDatStart"),
             @Mapping(source = "request.expectedDatEnd", target = "expectedDatEnd"),
+            @Mapping(source = "request.datStart", target = "datStart"),
+            @Mapping(source = "request.datEnd", target = "datEnd"),
             @Mapping(source = "request.name", target = "name"),
     })
     ProcessStageEntity create(ProcessStageRequest request);

@@ -15,6 +15,10 @@ import java.time.LocalDateTime;
 public class ProcessStageRequest {
     private Long id;
     private String observation;
+    @JsonProperty(value = "dat_start")
+    private LocalDateTime datStart;
+    @JsonProperty(value = "dat_end")
+    private LocalDateTime datEnd;
     @JsonProperty(value = "expected_dat_start")
     private LocalDateTime expectedDatStart;
     @JsonProperty(value = "expected_dat_end")
