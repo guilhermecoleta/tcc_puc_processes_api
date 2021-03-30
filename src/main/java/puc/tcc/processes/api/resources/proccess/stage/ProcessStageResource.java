@@ -45,7 +45,6 @@ public class ProcessStageResource {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ProcessStageResponse>> findAll( @PathVariable(value = "process") Long processId) {
         List<ProcessStageEntity> list = stageService.findAll(processId);
-        if(list.isEmpty()) return ResponseEntity.notFound().build();
 
         List<ProcessStageResponse> stages = getProcessStageResponses(list);
 
