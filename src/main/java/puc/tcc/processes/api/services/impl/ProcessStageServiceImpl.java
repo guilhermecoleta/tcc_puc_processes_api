@@ -52,6 +52,11 @@ public class ProcessStageServiceImpl implements ProcessStageService {
 
         for (var request: stages) {
             var processStage = processStageMapper.create(request);
+            Optional<ProcessStageEntity> stage = processStage.getId() != null? processStageRepository.findById(processStage.getId()) : Optional.empty();
+            if(stage.isPresent()){
+                processStage.setDatStart(stage.orElseThrow().getDatStart());
+                processStage.setDatEnd(stage.orElseThrow().getDatEnd());
+            }
             processStage.setProcess(process.orElseThrow());
             if(process.orElseThrow().getCurrentStage() == null){
                 process.orElseThrow().setCurrentStage(processStage);
